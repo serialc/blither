@@ -1,0 +1,58 @@
+/* blither CSS */
+
+div#content {
+    min-height: 60vh;
+}
+
+div#footer {
+    min-height: 20vh;
+}
+
+#jumbotron {
+    background-image: url('/imgs/splash_img.jpg');
+    background-size: cover;
+    height: 500px;
+}
+
+nav {
+  padding: 0 15px;
+}
+
+.hero, .mini-hero {
+    background-color: #879c97;
+    color: black;
+    min-height: 70px;
+}
+
+.hero a, .mini-hero a {
+    color: #333;
+}
+
+.hero a:hover, .mini-hero a:hover {
+    color: black;
+}
+
+.splash_links {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.mini-hero {
+    height: 85px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.course {
+    background-color: white;
+    padding: 10px;
+    color: black;
+    opacity: 0.9;
+}
+
+.course:hover {
+    opacity: 1;
+}

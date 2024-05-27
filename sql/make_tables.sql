@@ -1,0 +1,39 @@
+-- Create BLITHER tables 
+
+CREATE TABLE users (
+    uid MEDIUMINT UNSIGNED AUTO_INCREMENT, 
+    username VARCHAR(32) NOT NULL UNIQUE,
+    email VARCHAR(64) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    status TINYINT UNSIGNED NOT NULL,
+    PRIMARY KEY (uid)
+);
+
+CREATE TABLE courses (
+    cid MEDIUMINT UNSIGNED AUTO_INCREMENT,
+    name VARCHAR(128) NOT NULL,
+    location VARCHAR(128) NOT NULL,
+    country_code VARCHAR(2) NOT NULL,
+    description TEXT,
+    baskets TINYINT UNSIGNED NOT NULL,
+    PRIMARY KEY (cid)
+);
+
+CREATE TABLE holes (
+    cid MEDIUMINT UNSIGNED NOT NULL,
+    num TINYINT UNSIGNED NOT NULL,
+    par TINYINT UNSIGNED NOT NULL,
+    PRIMARY KEY (cid, num)
+);
+
+CREATE TABLE friends (
+    uid MEDIUMINT UNSIGNED, 
+    fid MEDIUMINT UNSIGNED, 
+    PRIMARY KEY (uid, fid)
+);
+
+CREATE TABLE settings (
+    skey VARCHAR(16) NOT NULL,
+    value VARCHAR(64) NOT NULL,
+    PRIMARY KEY (skey)
+);

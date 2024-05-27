@@ -1,0 +1,9 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.6",
+        "monolog/monolog": "^3.2",
+        "pragmarx/random": "^0.2.2",
+        "filp/whoops": "^2.14",
+        "erusev/parsedown": "^1.7"
+    }
+}

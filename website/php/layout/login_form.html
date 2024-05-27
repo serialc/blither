@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-12">
+        <h2>Login</h2>
+    </div>
+    <div class="col-md-6">
+        <p>Enter your username and password.</p>
+    </div>
+    <div class="col-md-6">
+        <form action="/login" method="post">
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" autofocus="autofocus" id="email" name="email" maxlength="64" aria-describedby="email">
+                <div class="form-text"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <i class="float-end mouse-cursor text-secondary fa fa-eye" onclick="DP.toggle_pw_vis(this, 'inputPassword')" class="fa fa-eye" aria-hidden="true"></i>
+                <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+            </div>
+
+            <button type="submit" onmousedown="document.getElementById('inputPassword').type = 'password';" class="btn btn-primary">Login</button>
+        </form>
+        <p class="mt-5"><a href="/password_reset">Forgot your password?</a></p>
+    </div>
+</div>
