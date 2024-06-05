@@ -19,11 +19,14 @@ class Course
         unset($this->db);
     }
 
+    public function getCourse($cid)
+    {
+        return $this->db->getCourse($cid);
+    }
     public function getCourses()
     {
         return $this->db->getCoursesSummary();
     }
-
     public function displayList()
     {
         global $user;
@@ -47,8 +50,27 @@ class Course
         echo '</div>';
     }
 
-    public function displayCid( $cid ) {
-        echo "display course id=$cid in php/courses.php";
+    public function displayCid( $cid )
+    {
+        global $user;
+
+        $course = $this->getCourse($cid);
+
+        // check that something is returned
+        if ( isset($course['cid']) ) {
+
+            echo '<h1>' . $course['name'];
+            echo '<a href="/play/' . $course['cid'] . '"><button class="btn btn-success m-1 float-end">Play</button></a>';
+            if ( $user->getName() ) {
+                echo '<a href="/courses/edit/' . $course['cid'] . '"><button class="btn btn-success m-1 float-end">Edit</button></a>';
+            }
+            echo '</h1>';
+            echo "<div>" . $course['location'] . ' (<a href="/courses/country/' . $course['country_code'] . '">' . $course['country_code'] . "</a>)</div>";
+            echo "<div>" . $course['description'] . "</div>";
+
+        } else {
+            echo "<h1>Course not found</h1>";
+        }
     }
 
     public function submitNew( $name, $location, $country, $description, $baskets ) {

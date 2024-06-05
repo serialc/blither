@@ -263,6 +263,14 @@ class DataBaseConnection
         }
         return $queries;
     }
+    public function getCourse ( $course_id )
+    {
+        $sql = "SELECT * FROM " . TABLE_COURSES . " WHERE cid=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$course_id]);
+        return($stmt->fetch(PDO::FETCH_ASSOC));
+    }
+
     public function getCoursesSummary()
     {
         $sql = "SELECT * FROM " . TABLE_COURSES;
