@@ -8,6 +8,7 @@ use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+// set the cookie and then start the session
 session_set_cookie_params(['SameSite' => 'Strict']);
 session_start();
 
@@ -36,7 +37,7 @@ if (strcmp($req[0], "logout") === 0) {
     $_SESSION = array();
 
     if (ini_get("session.use_cookies")) {
-        $params = session_set_cookie_params(['SameSite' => 'Strict']);
+        $params = session_get_cookie_params();
         setcookie(
             session_name(),
             '',

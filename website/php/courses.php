@@ -30,7 +30,15 @@ if (count($req) === 1) {
     case 'new':
         // only show users of CREATOR status
         if ($user->getStatus() >= MEMBER_STATUS_CREATOR) {
-            include('../php/new_course_form_process.php');
+            $course->displayFormNewCourse();
+        } else {
+            echo "You don't have access. Log in?";
+        }
+        break;
+
+    case 'edit':
+        if ( is_numeric($req[2]) ) {
+            $course->displayFormEditCourse($req[2]);
         }
         break;
 
