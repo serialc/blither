@@ -1,3 +1,4 @@
 config.php
 website/vendor
+website/logs
 composer.lock
